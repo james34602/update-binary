@@ -1,4 +1,4 @@
-# Conventional update-binary for Android recovery (Eclipse NDK build)
+# Conventional update-binary for Android recovery (Eclipse NDK build)---Mainly for CWM/TWRP Recovery
 
 Some people may curious how does update-binary in your update.zip is created...And what is going on inside of it
 
@@ -10,7 +10,16 @@ This show you how to compile it in normal way.
 3. Compatible with most platform, ARM, x86, etc.
 4. SELinux is deleted from code.
 
-# Example from [JamesDSPManager .zip installer](https://github.com/james34602/JamesDSPManager):
+# Usage and common errors
+## Usage
+Create a script file call "updater-script" inside your zip folder, e.g: ZIPFILE/META-INF/com/google/android/, edit your script here.
+
+Put your compiled update-binary into that folder too, pack your zip correctly(7zip deflate) will do the job, finally test your zip installer.
+## Errors
+1. Incompatible binary is used. You may using x86 binary on ARM devices.
+2. Check your script, wrong syntax will cause error.
+
+# Example "updater-script" from [JamesDSPManager .zip installer](https://github.com/james34602/JamesDSPManager):
 ```
 ui_print("**********************************************");
 ui_print("*Installing JamesDSP for Android 5.X.X or above (ARM)*");
